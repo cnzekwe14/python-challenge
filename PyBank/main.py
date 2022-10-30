@@ -3,8 +3,9 @@ import csv
 
 
 
-csvfile = os.path.join('.','Resources', 'budget_data.csv') # get the path of the data
-with open("PyBank.txt","w") as PyBank_output: # create a text file with the information provided below
+csvfile = os.path.join('.','Resources', 'budget_data.csv') # get the path of the csv file
+csvfile_1 = os.path.join('.','analysis','PyBank.txt') # get the path of PyBank text file
+with open(csvfile_1,'w') as PyBank_output: # create a text file with the information provided below
     with open(csvfile,encoding ='utf') as budget_csv: # open the csv file an assign it a variable
         csvreader = csv.reader(budget_csv, delimiter=",") # read in the budget_data and seperate it by commas
         print(csvreader) # provide the reader information
@@ -55,13 +56,13 @@ with open("PyBank.txt","w") as PyBank_output: # create a text file with the info
         print(f'Total Months: {total_month_count}')   
         print(f'Total: ${round((total_budget),)}')
         print(f'Average Change: ${profit_change}')
-        print(f'Increase in Profits: {m1} (${max_number})')
-        print(f'Decrease in Profits: {m2} (${min_number})')
+        print(f'Greatest Increase in Profits: {m1} (${max_number})')
+        print(f'Greatest Decrease in Profits: {m2} (${min_number})')
 
         # provide the output into the text file
         out_1 = f'Financial Analysis\n--------------------------------\nTotal Months: {total_month_count}'
         out_2 = f'\nTotal: ${budget_t}\nAverage Change: ${profit_change}'
-        out_3 = f'\nIncrease in Profts: "{m1} (${max_number})\nDecrease in Profits: {m2} (${min_number})'
+        out_3 = f'\nGreatest Increase in Profts: "{m1} (${max_number})\nGreatest Decrease in Profits: {m2} (${min_number})'
         PyBank_output.write(out_1) 
         PyBank_output.write(out_2)
         PyBank_output.write(out_3)

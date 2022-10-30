@@ -1,9 +1,9 @@
 import os
 import csv
 
-csv_path_1 = os.path.join('.','Resources', 'election_data.csv')
-
-with open ("PyPoll.txt", "w") as output_2: # create a texxt file for the output below
+csv_path_1 = os.path.join('.','Resources', 'election_data.csv') # get the csv file
+csv_path_2 = os.path.join('.','analysis','PyPoll.txt') # get the text file
+with open (csv_path_2, "w") as output_2: # create a texxt file for the output below
     with open(csv_path_1, encoding='utf') as election_csv:
         csvreader = csv.reader(election_csv, delimiter=',')
         print(csvreader)
